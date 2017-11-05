@@ -57,7 +57,7 @@ public func EXIT_LOG(functionName:String = #function, filePath:String = #file, l
 }
 
 public func slogToFile(atPath path:String, append:Bool = false) {
-  let fileManager = FileManager.default()
+    let fileManager = FileManager.default
   slogFilePath = path
 
   if let logFile = slogFilePath {
@@ -70,7 +70,7 @@ public func slogToFile(atPath path:String, append:Bool = false) {
 func SLog(logLevel:SLogLevel, logString:String, filePath:String, lineNumber:Int) {
   let date = Date()
   let fileUrl = URL(fileURLWithPath:filePath)
-  let log  = "\(date) - \(fileUrl.lastPathComponent!):\(lineNumber) - " + stringForLogLevel(logLevel:logLevel) + " - " + logString + "\n"
+    let log  = "\(date) - \(fileUrl.lastPathComponent):\(lineNumber) - " + stringForLogLevel(logLevel:logLevel) + " - " + logString + "\n"
   let appLogLevel = slogLevel.rawValue
   if (appLogLevel >= logLevel.rawValue) {
     print(log, terminator:"")
@@ -85,7 +85,7 @@ func SLog(logLevel:SLogLevel, logString:String, filePath:String, lineNumber:Int)
 }
 
 func stringForLogLevel(logLevel:SLogLevel) -> String {
-  Rainbow.outputTarget = .Console
+    Rainbow.outputTarget = .console
   switch logLevel {
   case .Verbose:
     return "VERBOSE".green

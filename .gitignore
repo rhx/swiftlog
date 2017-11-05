@@ -2,3 +2,5 @@
 .*.swp
 *~
 Packages
+Package.resolved
+swiftlog.xcodeproj
